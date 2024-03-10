@@ -28,4 +28,3 @@ if response.status_code == 200:
         print("Giải Nhất:", first_prize)
         print()  # Add a blank line between each set of results
 
-
