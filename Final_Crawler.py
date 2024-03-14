@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import csv
+dotenv_path = "Variable.env"
+load_dotenv(dotenv_path)
 
 def crawl_lottery_results(date):
     url = f"https://xoso.com.vn/xsmb-{date}.html"
@@ -69,9 +73,12 @@ def crawl_lottery_results(date):
         return {'Ngày': date, 'Giải Đặc BIệt': special_prize, 'Giải Nhất': first_prize, 'Giải Nhì': prize2_numbers, 'Giải Ba':prize3_numbers, 'Giải Tư':prize4_numbers, 'Giải Năm':prize5_numbers, 'Giải Sáu':prize6_numbers, 'Giải Bảy':prize7_numbers}
 
 # Define start_date and end_date
-start_date = datetime(2018, 1, 1)
-end_date = datetime(2024, 2, 1)
-
+#start_date = datetime(2018, 1, 1)
+#end_date = datetime(2024, 2, 1)
+start_date = os.getenv("START_DATE")
+end_date = os.getenv("END_DATE")
+start_date = datetime.strptime(start_date, "%Y-%m-%d")
+end_date = datetime.strptime(end_date, "%Y-%m-%d")
 # Initialize a list to store the extracted data
 all_data = []
 
@@ -95,7 +102,7 @@ while current_date <= end_date:
     current_date += timedelta(days=1)
 
 # Write the data to a CSV file
-csv_file_path = 'final_lottery_results.csv'
+csv_file_path = os.getenv("CSV_FILE_PATH")
 fieldnames = ['Ngày', 'Giải Đặc BIệt', 'Giải Nhất', 'Giải Nhì', 'Giải Ba', 'Giải Tư', 'Giải Năm', 'Giải Sáu', 'Giải Bảy']
 
 with open(csv_file_path, mode='w',encoding='utf-8', newline='') as csv_file:
