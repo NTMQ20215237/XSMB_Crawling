@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import csv
+
 dotenv_path = "Variable.env"
 load_dotenv(dotenv_path)
 
