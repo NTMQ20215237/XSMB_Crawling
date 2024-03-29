@@ -21,6 +21,7 @@ def crawl_lottery_results(date):
         special_prize = soup.find('span', class_='special-prize').text.strip()
         #Crawl giải nhất
         first_prize = soup.find('span', class_='prize1').text.strip()
+        first_prize=[first_prize]
         #Crawl giải hai
         prize2_elements = soup.find_all('span', class_='prize2')
         prize2_numbers = []
