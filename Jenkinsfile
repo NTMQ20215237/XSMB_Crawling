@@ -1,9 +1,6 @@
 pipeline {
     agent any
     
-    environment {
-        // Các biến môi trường của bạn
-    }
     
     stages {
         stage('Clone Repository') {
@@ -15,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                 python3 -m venv venv
-                source venv/bin/activate
+                source crawling/Scripts/activate
                 pip install -r requirements.txt
                 '''
             }
@@ -23,7 +20,7 @@ pipeline {
         stage('Run Data Crawling Script') {
             steps {
                 sh '''
-                source venv/bin/activate
+                source crawling/Scripts/activate
                 python your_script_name.py
                 '''
             }
