@@ -8,6 +8,7 @@ pipeline {
                 git 'https://github.com/NTMQ20215237/XSMB_Crawling'
             }
         }
+        
         stage('Install dependencies') {
             steps {
                 sh '''
