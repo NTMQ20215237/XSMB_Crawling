@@ -15,7 +15,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Lấy mã nguồn mới nhất từ repository
-                git clone https://github.com/NTMQ20215237/XSMB_Crawling
+                git clone 'https://github.com/NTMQ20215237/XSMB_Crawling'
             }
         }
 
