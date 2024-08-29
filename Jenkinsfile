@@ -5,6 +5,7 @@ pipeline {
         stage('check python version') {
             steps {
                 python hello.py
+                
             }
         }
     }
