@@ -2,9 +2,9 @@ pipeline {
     agent any
     
     stages {
-        stage('Clone Repository') {
+        stage('check python version') {
             steps {
-                echo "hello world"
+                python hello.py
             }
         }
     }
