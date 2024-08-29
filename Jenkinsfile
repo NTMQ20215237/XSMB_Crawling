@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('check python version') {
             steps {
-                sh 'python3 hello.py'
+                sh 'python -m venv venv'
                 
             }
         }
